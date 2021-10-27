@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untitled Document</title>
+<style>
+.menu {
+    background-color: #BBBBBB;
+    color: #FFFFFF;
+    display: block;
+    padding: 50px;
+    text-decoration: none;
+}
+.menu:hover {
+    background: #333333;
+}
+.menu:active {
+    background: #A3A3A3;
+}
+.leftcolumn {
+    width: 170px;
+    height: auto;
+    float: left;
+    padding: 10px;
+}
+.page {
+    width: 930px;
+    height: auto;
+    float: left;
+}
+.centerheader {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.blockformat {
+    display: block;
+}
+</style>
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<img src="../MidTerm/2021/header.jpg" width="780" height="120" alt="" class="centerheader"/>
+<div class="leftcolumn">
+  <div class="menu" align="center" onclick="homeClick()">Home</div>
+  <div class="menu" align="center" onclick="quizClick()">Quiz</div>
+  <div class="menu" align="center" onclick="contactClick()">Contact</div>
+</div>
+<div class="page" id="homeId">
+  <h1>Lorem ipsum dolor</h1>
+  <h2>Sit amet in non at laoreet</h2>
+  <p>Vel pulvinar dapibus condimentum in proin. Varius erat sed. Curabitur sit eget integer convallis tenetur turpis in ac vivamus quae luctus. Auctor semper quam. <b>Ornare magna faucibus vel phasellus</b> vel placerat penatibus egestas vel nulla vitae. Curabitur malesuada nam sed facilisis amet. </p>
+  <p>viverra tortor® elit curabitur natoque. Ut sed amet</p>
+  <h2>Est donec congue</h2>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <h2>Hendrerit rhoncus pellentesque</h2>
+  <ul>
+    <li>Item 1
+      <ul>
+        <li>Item 1.1</li>
+        <li>Item 1.2</li>
+      </ul>
+    </li>
+    <li>Item 2
+      <ul>
+        <li>Item 2.1</li>
+        <li>Item 2.2</li>
+      </ul>
+    </li>
+    <li>Item 3
+      <ul>
+        <li>Item 3.1</li>
+        <li>Item 3.2</li>
+      </ul>
+    </li>
+  </ul>
+  <h2>Aliquet fames sed</h2>
+  <p><b>Mauris hendrerit lobortis elit et eu in pulvinar nec. <i>Diam id vel.</i></b> Vestibulum volutpat tellus diam nullam hac. Placerat consectetuer lacus condimentum nibh a. Pellentesque ac integer maecenas in ac. Sit risus duis. Sed non suspendisse. Ante vehicula suspendisse. Nec quis eget vivamus proin at odio metus magna morbi justo sem euismod egestas amet venenatis ut est.</p>
+</div>
+<div class="page" id="quizId" hidden>
+  <label class="blockformat">First And Last Name</label>
+  <input type="text" size="20" class="blockformat">
+  <br>
+  <label class="blockformat">Inside which HTML element do we put the JavaScript (choose one):</label>
+  <input type="radio" name="q2">
+  <label>&lt;scripting&gt;</label>
+  <br>
+  <input type="radio" name="q2">
+  <label>&lt;js&gt;</label>
+  <br>
+  <input type="radio" name="q2">
+  <label>&lt;javascript&gt;</label>
+  <br>
+  <input type="radio" name="q2">
+  <label>&lt;script&gt;</label>
+  <br>
+  <br>
+  <label class="blockformat">The external JavaScript file must contain the &lt;script&gt; tag (check all that apply)</label>
+  <input type="checkbox">
+  <label>True</label>
+  <br>
+  <input type="checkbox">
+  <label>False</label>
+  <br>
+  <input type="checkbox">
+  <label>None</label>
+  <br>
+  <input type="checkbox">
+  <label>Both</label>
+  <br>
+  <br>
+  <label>How do you write "Hello World" in an alert box? (Select option)</label>
+  <select>
+    <option value="1">Alert(“Hello World”);</option>
+    <option value="2">alertBox(“Hello World”);</option>
+    <option value="3">msg(“Hello World”);</option>
+    <option value="4">msgBox(“Hello World”);</option>
+  </select>
+  <br>
+  <br>
+  <button onClick="stopCounting()">Submit</button>
+  <br>
+  <label id="timeInfo" hidden>It took you </label>
+  <label id="time" hidden>00</label>
+  <label id="timeInfo2" hidden> seconds to complete the quiz!</label>
+</div>
+<div class="page" id="contactId" hidden>
+  <h1>CREATE A CONTACT:</h1>
+  <form action="#" onsubmit="save()">
+    Surname:
+    <input type="text" id="snameId" required>
+    <br>
+    Name:
+    <input type="text" id="fnameId" required>
+    <br>
+    Student Id:
+    <input type="number" id="studentId" required>
+    <br>
+    Email:
+    <input type="text" id="emailId" required>
+    <br>
+    Note:
+    <input type="text" id="notId">
+    <br>
+    <input type="submit">
+    <p id="contactinfo"></p>
+  </form>
+</div>
+<script>
+		function homeClick() {
+			var homeP = document.getElementById("homeId");
+			var quizP = document.getElementById("quizId");
+			var contactP = document.getElementById("contactId");
+			homeP.style.display="block";
+			quizP.style.display="none";		
+			contactP.style.display="none";
+		}
+		function quizClick() {
+			var homeP = document.getElementById("homeId");
+			var quizP = document.getElementById("quizId");
+			var contactP = document.getElementById("contactId");
+			homeP.style.display="none";
+			quizP.style.display="block";
+			contactP.style.display="none";
+		}
+		function contactClick() {
+			var homeP = document.getElementById("homeId");
+			var quizP = document.getElementById("quizId");
+			var contactP = document.getElementById("contactId");
+			homeP.style.display="none";
+			quizP.style.display="none";
+			contactP.style.display="block";
+		}
+	
+var timeC = document.getElementById("time");
+var totalSeconds = 0;
+var count = setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  timeC.innerHTML = pad(totalSeconds % 60);
+ 
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+		function stopCounting(){
+			clearInterval(count)
+			totalSeconds=totalSeconds;
+			timeC.style.display= "inline";
+			document.getElementById("timeInfo").style.display="inline"
+			document.getElementById("timeInfo2").style.display="inline"
+		}
+	</script> 
+<script>
+		function save(){
+			var j = {
+				"Surname" : document.getElementById("snameId").value,
+				"Name" : document.getElementById("fanmeId").value,
+				"StudentId" : document.getElementById("studentId").value,
+				"Email" : document.getElementById("emailId").value,
+				"Note" : document.getElementById("noteId").value
+			}
+			
+			document.getElementById("contactinfo").innerHTML = j;
+			
+			window.localStorage.setItem(j);
+		}
+	</script>
+</body>
+</html>
